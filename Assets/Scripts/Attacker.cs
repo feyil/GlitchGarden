@@ -5,7 +5,8 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     [Range(0f, 5f)]
-    [SerializeField] float walkSpeed = 1f;
+    float currentSpeed = 1f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,11 @@ public class Attacker : MonoBehaviour
     void Update()
     {
         // Frame rate independence
-        transform.Translate(Vector2.left * walkSpeed * Time.deltaTime);
+        transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
+    }
+
+    public void SetMovementSpeed(float speed)
+    {
+        currentSpeed = speed;
     }
 }
